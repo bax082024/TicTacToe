@@ -70,6 +70,7 @@
             // 
             // btn22
             // 
+            this.btn22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn22.Location = new System.Drawing.Point(477, 412);
             this.btn22.Name = "btn22";
@@ -80,6 +81,7 @@
             // 
             // btn21
             // 
+            this.btn21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn21.Location = new System.Drawing.Point(312, 412);
             this.btn21.Name = "btn21";
@@ -90,6 +92,7 @@
             // 
             // btn20
             // 
+            this.btn20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn20.Location = new System.Drawing.Point(147, 412);
             this.btn20.Name = "btn20";
@@ -100,6 +103,7 @@
             // 
             // btn12
             // 
+            this.btn12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn12.Location = new System.Drawing.Point(477, 247);
             this.btn12.Name = "btn12";
@@ -110,6 +114,7 @@
             // 
             // btn11
             // 
+            this.btn11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn11.Location = new System.Drawing.Point(312, 247);
             this.btn11.Name = "btn11";
@@ -120,6 +125,7 @@
             // 
             // btn10
             // 
+            this.btn10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn10.Location = new System.Drawing.Point(147, 247);
             this.btn10.Name = "btn10";
@@ -130,6 +136,7 @@
             // 
             // btn02
             // 
+            this.btn02.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn02.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn02.Location = new System.Drawing.Point(477, 82);
             this.btn02.Name = "btn02";
@@ -140,6 +147,7 @@
             // 
             // btn01
             // 
+            this.btn01.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn01.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn01.Location = new System.Drawing.Point(312, 82);
             this.btn01.Name = "btn01";
@@ -150,6 +158,7 @@
             // 
             // btn00
             // 
+            this.btn00.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn00.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn00.Location = new System.Drawing.Point(147, 82);
             this.btn00.Name = "btn00";
@@ -160,16 +169,19 @@
             // 
             // lblStatus
             // 
+            this.lblStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(330, 27);
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblStatus.Location = new System.Drawing.Point(306, 27);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(116, 20);
+            this.lblStatus.Size = new System.Drawing.Size(156, 25);
             this.lblStatus.TabIndex = 0;
             this.lblStatus.Text = "Player X Turn";
             // 
             // btnReset
             // 
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnReset.BackColor = System.Drawing.Color.LightGray;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -183,6 +195,7 @@
             // 
             // btnStart
             // 
+            this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnStart.BackColor = System.Drawing.Color.LightGray;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,6 +215,7 @@
             this.ClientSize = new System.Drawing.Size(800, 674);
             this.Controls.Add(this.panel1);
             this.Name = "TicTacToeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tic Tac Toe";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

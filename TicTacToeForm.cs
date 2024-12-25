@@ -19,6 +19,8 @@ namespace TicTacToe
 
         private bool isPlayerXTurn = true; // Tracks the current player
         private Button[,] gridButtons;    // 2D array for the button grid
+        private Image xImage = Image.FromFile("Images/x.png");
+        private Image oImage = Image.FromFile("Images/o.png");
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -39,19 +41,31 @@ namespace TicTacToe
         {
             Button clickedButton = sender as Button;
 
-            if (clickedButton.Text == "")
+            if (clickedButton.BackgroundImage == null) // Check if the button is empty
             {
-                clickedButton.Text = isPlayerXTurn ? "X" : "O";
+                if (isPlayerXTurn)
+                {
+                    clickedButton.BackgroundImage = xImage;
+                    clickedButton.Tag = "X"; // Store the player for winner check
+                }
+                else
+                {
+                    clickedButton.BackgroundImage = oImage;
+                    clickedButton.Tag = "O"; // Store the player for winner check
+                }
+
                 if (CheckWinner())
                 {
-                    lblStatus.Text = $"{clickedButton.Text} Wins!";
+                    lblStatus.Text = $"{(isPlayerXTurn ? "Player X" : "Player O")} Wins!";
                     DisableButtons();
                     return;
                 }
-                isPlayerXTurn = !isPlayerXTurn;
+
+                isPlayerXTurn = !isPlayerXTurn; // Switch turns
                 lblStatus.Text = isPlayerXTurn ? "Player X's Turn" : "Player O's Turn";
             }
         }
+
 
         private bool CheckWinner()
         {

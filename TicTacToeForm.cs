@@ -53,6 +53,39 @@ namespace TicTacToe
             }
         }
 
+        private bool CheckWinner()
+        {
+            // Check rows, columns, and diagonals
+            for (int i = 0; i < 3; i++)
+            {
+                // Check rows
+                if (gridButtons[i, 0].Text != "" &&
+                    gridButtons[i, 0].Text == gridButtons[i, 1].Text &&
+                    gridButtons[i, 1].Text == gridButtons[i, 2].Text)
+                    return true;
+
+                // Check columns
+                if (gridButtons[0, i].Text != "" &&
+                    gridButtons[0, i].Text == gridButtons[1, i].Text &&
+                    gridButtons[1, i].Text == gridButtons[2, i].Text)
+                    return true;
+            }
+
+            // Check diagonals
+            if (gridButtons[0, 0].Text != "" &&
+                gridButtons[0, 0].Text == gridButtons[1, 1].Text &&
+                gridButtons[1, 1].Text == gridButtons[2, 2].Text)
+                return true;
+
+            if (gridButtons[0, 2].Text != "" &&
+                gridButtons[0, 2].Text == gridButtons[1, 1].Text &&
+                gridButtons[1, 1].Text == gridButtons[2, 0].Text)
+                return true;
+
+            return false;
+        }
+
+
 
 
 

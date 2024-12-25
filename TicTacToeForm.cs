@@ -24,9 +24,9 @@ namespace TicTacToe
         {
             gridButtons = new Button[,]
             {
-        { btn00, btn01, btn02 },
-        { btn10, btn11, btn12 },
-        { btn20, btn21, btn22 }
+            { btn00, btn01, btn02 },
+            { btn10, btn11, btn12 },
+            { btn20, btn21, btn22 }
             };
 
             foreach (Button button in gridButtons)
@@ -34,6 +34,25 @@ namespace TicTacToe
                 button.Click += Button_Click;
             }
         }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            if (clickedButton.Text == "")
+            {
+                clickedButton.Text = isPlayerXTurn ? "X" : "O";
+                if (CheckWinner())
+                {
+                    lblStatus.Text = $"{clickedButton.Text} Wins!";
+                    DisableButtons();
+                    return;
+                }
+                isPlayerXTurn = !isPlayerXTurn;
+                lblStatus.Text = isPlayerXTurn ? "Player X's Turn" : "Player O's Turn";
+            }
+        }
+
 
 
 

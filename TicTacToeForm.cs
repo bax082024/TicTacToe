@@ -93,11 +93,15 @@ namespace TicTacToe
             }
         }
 
-
-
-
-
-
-
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            foreach (Button button in gridButtons)
+            {
+                button.Text = "";
+                button.Enabled = true;
+            }
+            isPlayerXTurn = true;
+            lblStatus.Text = "Player X's Turn";
+        }
     }
 }

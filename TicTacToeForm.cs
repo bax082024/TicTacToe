@@ -124,20 +124,18 @@ namespace TicTacToe
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if (gridButtons == null) return; // Ensure the array is initialized
-
             foreach (Button button in gridButtons)
             {
-                if (button != null) // Check for null references
-                {
-                    button.BackgroundImage = null; // Clear the image
-                    button.Tag = null; // Reset the Tag property
-                    button.Enabled = true; // Enable the button
-                }
+                button.Enabled = false; // Disable grid buttons
+                button.BackgroundImage = null; // Clear the image
+                button.Tag = null; // Reset the Tag property
             }
+
             isPlayerXTurn = true;
-            lblStatus.Text = "Player X's Turn";
+            lblStatus.Text = "Click Start to begin!"; // Update status
+            btnStart.Enabled = true; // Enable the Start button
         }
+
 
         private void btnStart_Click(object sender, EventArgs e)
         {

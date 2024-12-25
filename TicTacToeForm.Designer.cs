@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn09 = new System.Windows.Forms.Button();
-            this.btn07 = new System.Windows.Forms.Button();
-            this.btn06 = new System.Windows.Forms.Button();
-            this.btn05 = new System.Windows.Forms.Button();
-            this.bbtn04 = new System.Windows.Forms.Button();
-            this.btn03 = new System.Windows.Forms.Button();
+            this.btn22 = new System.Windows.Forms.Button();
+            this.btn21 = new System.Windows.Forms.Button();
+            this.btn20 = new System.Windows.Forms.Button();
+            this.btn12 = new System.Windows.Forms.Button();
+            this.btn11 = new System.Windows.Forms.Button();
+            this.btn10 = new System.Windows.Forms.Button();
             this.btn02 = new System.Windows.Forms.Button();
             this.btn01 = new System.Windows.Forms.Button();
             this.btn00 = new System.Windows.Forms.Button();
@@ -47,12 +47,12 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnReset);
-            this.panel1.Controls.Add(this.btn09);
-            this.panel1.Controls.Add(this.btn07);
-            this.panel1.Controls.Add(this.btn06);
-            this.panel1.Controls.Add(this.btn05);
-            this.panel1.Controls.Add(this.bbtn04);
-            this.panel1.Controls.Add(this.btn03);
+            this.panel1.Controls.Add(this.btn22);
+            this.panel1.Controls.Add(this.btn21);
+            this.panel1.Controls.Add(this.btn20);
+            this.panel1.Controls.Add(this.btn12);
+            this.panel1.Controls.Add(this.btn11);
+            this.panel1.Controls.Add(this.btn10);
             this.panel1.Controls.Add(this.btn02);
             this.panel1.Controls.Add(this.btn01);
             this.panel1.Controls.Add(this.btn00);
@@ -63,53 +63,53 @@
             this.panel1.Size = new System.Drawing.Size(800, 674);
             this.panel1.TabIndex = 0;
             // 
-            // btn09
+            // btn22
             // 
-            this.btn09.Location = new System.Drawing.Point(482, 446);
-            this.btn09.Name = "btn09";
-            this.btn09.Size = new System.Drawing.Size(150, 150);
-            this.btn09.TabIndex = 9;
-            this.btn09.UseVisualStyleBackColor = true;
+            this.btn22.Location = new System.Drawing.Point(482, 446);
+            this.btn22.Name = "btn22";
+            this.btn22.Size = new System.Drawing.Size(150, 150);
+            this.btn22.TabIndex = 9;
+            this.btn22.UseVisualStyleBackColor = true;
             // 
-            // btn07
+            // btn21
             // 
-            this.btn07.Location = new System.Drawing.Point(317, 446);
-            this.btn07.Name = "btn07";
-            this.btn07.Size = new System.Drawing.Size(150, 150);
-            this.btn07.TabIndex = 8;
-            this.btn07.UseVisualStyleBackColor = true;
+            this.btn21.Location = new System.Drawing.Point(317, 446);
+            this.btn21.Name = "btn21";
+            this.btn21.Size = new System.Drawing.Size(150, 150);
+            this.btn21.TabIndex = 8;
+            this.btn21.UseVisualStyleBackColor = true;
             // 
-            // btn06
+            // btn20
             // 
-            this.btn06.Location = new System.Drawing.Point(152, 446);
-            this.btn06.Name = "btn06";
-            this.btn06.Size = new System.Drawing.Size(150, 150);
-            this.btn06.TabIndex = 7;
-            this.btn06.UseVisualStyleBackColor = true;
+            this.btn20.Location = new System.Drawing.Point(152, 446);
+            this.btn20.Name = "btn20";
+            this.btn20.Size = new System.Drawing.Size(150, 150);
+            this.btn20.TabIndex = 7;
+            this.btn20.UseVisualStyleBackColor = true;
             // 
-            // btn05
+            // btn12
             // 
-            this.btn05.Location = new System.Drawing.Point(482, 281);
-            this.btn05.Name = "btn05";
-            this.btn05.Size = new System.Drawing.Size(150, 150);
-            this.btn05.TabIndex = 6;
-            this.btn05.UseVisualStyleBackColor = true;
+            this.btn12.Location = new System.Drawing.Point(482, 281);
+            this.btn12.Name = "btn12";
+            this.btn12.Size = new System.Drawing.Size(150, 150);
+            this.btn12.TabIndex = 6;
+            this.btn12.UseVisualStyleBackColor = true;
             // 
-            // bbtn04
+            // btn11
             // 
-            this.bbtn04.Location = new System.Drawing.Point(317, 281);
-            this.bbtn04.Name = "bbtn04";
-            this.bbtn04.Size = new System.Drawing.Size(150, 150);
-            this.bbtn04.TabIndex = 5;
-            this.bbtn04.UseVisualStyleBackColor = true;
+            this.btn11.Location = new System.Drawing.Point(317, 281);
+            this.btn11.Name = "btn11";
+            this.btn11.Size = new System.Drawing.Size(150, 150);
+            this.btn11.TabIndex = 5;
+            this.btn11.UseVisualStyleBackColor = true;
             // 
-            // btn03
+            // btn10
             // 
-            this.btn03.Location = new System.Drawing.Point(152, 281);
-            this.btn03.Name = "btn03";
-            this.btn03.Size = new System.Drawing.Size(150, 150);
-            this.btn03.TabIndex = 4;
-            this.btn03.UseVisualStyleBackColor = true;
+            this.btn10.Location = new System.Drawing.Point(152, 281);
+            this.btn10.Name = "btn10";
+            this.btn10.Size = new System.Drawing.Size(150, 150);
+            this.btn10.TabIndex = 4;
+            this.btn10.UseVisualStyleBackColor = true;
             // 
             // btn02
             // 
@@ -176,15 +176,15 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Button btn05;
-        private System.Windows.Forms.Button bbtn04;
-        private System.Windows.Forms.Button btn03;
+        private System.Windows.Forms.Button btn12;
+        private System.Windows.Forms.Button btn11;
+        private System.Windows.Forms.Button btn10;
         private System.Windows.Forms.Button btn02;
         private System.Windows.Forms.Button btn01;
         private System.Windows.Forms.Button btn00;
-        private System.Windows.Forms.Button btn09;
-        private System.Windows.Forms.Button btn07;
-        private System.Windows.Forms.Button btn06;
+        private System.Windows.Forms.Button btn22;
+        private System.Windows.Forms.Button btn21;
+        private System.Windows.Forms.Button btn20;
         private System.Windows.Forms.Button btnReset;
     }
 }

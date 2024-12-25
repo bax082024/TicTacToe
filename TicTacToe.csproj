@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="Images\bluex.png" />
+    <Content Include="Images\x.png" />
     <Content Include="Images\o.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

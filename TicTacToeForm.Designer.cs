@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn22 = new System.Windows.Forms.Button();
             this.btn21 = new System.Windows.Forms.Button();
@@ -40,12 +41,16 @@
             this.btn00 = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnStart = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.btnStart);
             this.panel1.Controls.Add(this.btnReset);
             this.panel1.Controls.Add(this.btn22);
             this.panel1.Controls.Add(this.btn21);
@@ -65,7 +70,7 @@
             // 
             // btn22
             // 
-            this.btn22.Location = new System.Drawing.Point(482, 446);
+            this.btn22.Location = new System.Drawing.Point(477, 412);
             this.btn22.Name = "btn22";
             this.btn22.Size = new System.Drawing.Size(150, 150);
             this.btn22.TabIndex = 9;
@@ -73,7 +78,7 @@
             // 
             // btn21
             // 
-            this.btn21.Location = new System.Drawing.Point(317, 446);
+            this.btn21.Location = new System.Drawing.Point(312, 412);
             this.btn21.Name = "btn21";
             this.btn21.Size = new System.Drawing.Size(150, 150);
             this.btn21.TabIndex = 8;
@@ -81,7 +86,7 @@
             // 
             // btn20
             // 
-            this.btn20.Location = new System.Drawing.Point(152, 446);
+            this.btn20.Location = new System.Drawing.Point(147, 412);
             this.btn20.Name = "btn20";
             this.btn20.Size = new System.Drawing.Size(150, 150);
             this.btn20.TabIndex = 7;
@@ -89,7 +94,7 @@
             // 
             // btn12
             // 
-            this.btn12.Location = new System.Drawing.Point(482, 281);
+            this.btn12.Location = new System.Drawing.Point(477, 247);
             this.btn12.Name = "btn12";
             this.btn12.Size = new System.Drawing.Size(150, 150);
             this.btn12.TabIndex = 6;
@@ -97,7 +102,7 @@
             // 
             // btn11
             // 
-            this.btn11.Location = new System.Drawing.Point(317, 281);
+            this.btn11.Location = new System.Drawing.Point(312, 247);
             this.btn11.Name = "btn11";
             this.btn11.Size = new System.Drawing.Size(150, 150);
             this.btn11.TabIndex = 5;
@@ -105,7 +110,7 @@
             // 
             // btn10
             // 
-            this.btn10.Location = new System.Drawing.Point(152, 281);
+            this.btn10.Location = new System.Drawing.Point(147, 247);
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(150, 150);
             this.btn10.TabIndex = 4;
@@ -113,7 +118,7 @@
             // 
             // btn02
             // 
-            this.btn02.Location = new System.Drawing.Point(482, 116);
+            this.btn02.Location = new System.Drawing.Point(477, 82);
             this.btn02.Name = "btn02";
             this.btn02.Size = new System.Drawing.Size(150, 150);
             this.btn02.TabIndex = 3;
@@ -121,7 +126,7 @@
             // 
             // btn01
             // 
-            this.btn01.Location = new System.Drawing.Point(317, 116);
+            this.btn01.Location = new System.Drawing.Point(312, 82);
             this.btn01.Name = "btn01";
             this.btn01.Size = new System.Drawing.Size(150, 150);
             this.btn01.TabIndex = 2;
@@ -129,7 +134,7 @@
             // 
             // btn00
             // 
-            this.btn00.Location = new System.Drawing.Point(152, 116);
+            this.btn00.Location = new System.Drawing.Point(147, 82);
             this.btn00.Name = "btn00";
             this.btn00.Size = new System.Drawing.Size(150, 150);
             this.btn00.TabIndex = 1;
@@ -139,7 +144,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(329, 34);
+            this.lblStatus.Location = new System.Drawing.Point(330, 27);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(116, 20);
             this.lblStatus.TabIndex = 0;
@@ -158,6 +163,19 @@
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.LightGray;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Location = new System.Drawing.Point(334, 577);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(111, 35);
+            this.btnStart.TabIndex = 11;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
             // TicTacToeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +187,7 @@
             this.Text = "Tic Tac Toe";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -187,6 +206,8 @@
         private System.Windows.Forms.Button btn21;
         private System.Windows.Forms.Button btn20;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,9 @@ namespace TicTacToe
 
         private bool isPlayerXTurn = true; // Tracks the current player
         private Button[,] gridButtons;    // 2D array for the button grid
-        private Image xImage = Image.FromFile("Images/x.png");
-        private Image oImage = Image.FromFile("Images/o.png");
+        private Image xImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "x.png"));
+        private Image oImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "o.png"));
+
 
         private void TicTacToeForm_Load(object sender, EventArgs e)
         {
@@ -33,9 +35,11 @@ namespace TicTacToe
 
             foreach (Button button in gridButtons)
             {
+                button.Enabled = false; // Disable buttons initially
                 button.Click += Button_Click;
             }
         }
+
 
 
         private void Button_Click(object sender, EventArgs e)
@@ -120,14 +124,33 @@ namespace TicTacToe
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            if (gridButtons == null) return; // Ensure the array is initialized
+
             foreach (Button button in gridButtons)
             {
-                button.BackgroundImage = null; // Clear the image
-                button.Tag = null; // Reset the Tag property
-                button.Enabled = true;
+                if (button != null) // Check for null references
+                {
+                    button.BackgroundImage = null; // Clear the image
+                    button.Tag = null; // Reset the Tag property
+                    button.Enabled = true; // Enable the button
+                }
             }
             isPlayerXTurn = true;
             lblStatus.Text = "Player X's Turn";
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            foreach (Button button in gridButtons)
+            {
+                button.Enabled = true; // Enable the buttons
+                button.BackgroundImage = null; // Reset any images
+                button.Tag = null; // Reset the Tag property
+            }
+
+            isPlayerXTurn = true; // Reset to Player X's turn
+            lblStatus.Text = "Player X's Turn"; // Update status
+            btnStart.Enabled = false; // Disable the Start button to prevent restarts mid-game
         }
 
     }

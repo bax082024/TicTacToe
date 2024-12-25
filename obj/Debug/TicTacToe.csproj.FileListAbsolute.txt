@@ -1,0 +1,10 @@
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\obj\Debug\TicTacToe.csproj.AssemblyReference.cache
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\obj\Debug\TicTacToe.TicTacToeForm.resources
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\obj\Debug\TicTacToe.Properties.Resources.resources
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\obj\Debug\TicTacToe.csproj.GenerateResource.cache
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\bin\Debug\TicTacToe.exe.config
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\bin\Debug\TicTacToe.exe
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\bin\Debug\TicTacToe.pdb
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\obj\Debug\TicTacToe.exe
+C:\HjemmeKode\C-Sharp\MyProjects\TicTacToe\obj\Debug\TicTacToe.pdb

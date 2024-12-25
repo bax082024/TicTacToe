@@ -22,13 +22,13 @@ namespace TicTacToe
         private Image xImage = Image.FromFile("Images/x.png");
         private Image oImage = Image.FromFile("Images/o.png");
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void TicTacToeForm_Load(object sender, EventArgs e)
         {
             gridButtons = new Button[,]
             {
-            { btn00, btn01, btn02 },
-            { btn10, btn11, btn12 },
-            { btn20, btn21, btn22 }
+                { btn00, btn01, btn02 },
+                { btn10, btn11, btn12 },
+                { btn20, btn21, btn22 }
             };
 
             foreach (Button button in gridButtons)
@@ -36,6 +36,7 @@ namespace TicTacToe
                 button.Click += Button_Click;
             }
         }
+
 
         private void Button_Click(object sender, EventArgs e)
         {
@@ -69,35 +70,45 @@ namespace TicTacToe
 
         private bool CheckWinner()
         {
-            // Check rows, columns, and diagonals
+            // Check rows and columns
             for (int i = 0; i < 3; i++)
             {
                 // Check rows
-                if (gridButtons[i, 0].Text != "" &&
-                    gridButtons[i, 0].Text == gridButtons[i, 1].Text &&
-                    gridButtons[i, 1].Text == gridButtons[i, 2].Text)
+                if (gridButtons[i, 0].Tag != null &&
+                    gridButtons[i, 0].Tag == gridButtons[i, 1].Tag &&
+                    gridButtons[i, 1].Tag == gridButtons[i, 2].Tag)
+                {
                     return true;
+                }
 
                 // Check columns
-                if (gridButtons[0, i].Text != "" &&
-                    gridButtons[0, i].Text == gridButtons[1, i].Text &&
-                    gridButtons[1, i].Text == gridButtons[2, i].Text)
+                if (gridButtons[0, i].Tag != null &&
+                    gridButtons[0, i].Tag == gridButtons[1, i].Tag &&
+                    gridButtons[1, i].Tag == gridButtons[2, i].Tag)
+                {
                     return true;
+                }
             }
 
             // Check diagonals
-            if (gridButtons[0, 0].Text != "" &&
-                gridButtons[0, 0].Text == gridButtons[1, 1].Text &&
-                gridButtons[1, 1].Text == gridButtons[2, 2].Text)
+            if (gridButtons[0, 0].Tag != null &&
+                gridButtons[0, 0].Tag == gridButtons[1, 1].Tag &&
+                gridButtons[1, 1].Tag == gridButtons[2, 2].Tag)
+            {
                 return true;
+            }
 
-            if (gridButtons[0, 2].Text != "" &&
-                gridButtons[0, 2].Text == gridButtons[1, 1].Text &&
-                gridButtons[1, 1].Text == gridButtons[2, 0].Text)
+            if (gridButtons[0, 2].Tag != null &&
+                gridButtons[0, 2].Tag == gridButtons[1, 1].Tag &&
+                gridButtons[1, 1].Tag == gridButtons[2, 0].Tag)
+            {
                 return true;
+            }
 
             return false;
         }
+
+
 
         private void DisableButtons()
         {
@@ -111,11 +122,13 @@ namespace TicTacToe
         {
             foreach (Button button in gridButtons)
             {
-                button.Text = "";
+                button.BackgroundImage = null; // Clear the image
+                button.Tag = null; // Reset the Tag property
                 button.Enabled = true;
             }
             isPlayerXTurn = true;
             lblStatus.Text = "Player X's Turn";
         }
+
     }
 }

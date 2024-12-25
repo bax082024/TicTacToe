@@ -85,6 +85,14 @@ namespace TicTacToe
             return false;
         }
 
+        private void DisableButtons()
+        {
+            foreach (Button button in gridButtons)
+            {
+                button.Enabled = false;
+            }
+        }
+
 
 
 

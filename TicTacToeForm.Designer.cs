@@ -39,12 +39,14 @@
             this.btn01 = new System.Windows.Forms.Button();
             this.btn00 = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.btnReset);
             this.panel1.Controls.Add(this.btn09);
             this.panel1.Controls.Add(this.btn07);
             this.panel1.Controls.Add(this.btn06);
@@ -143,6 +145,18 @@
             this.lblStatus.TabIndex = 0;
             this.lblStatus.Text = "Player X Turn";
             // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.LightGray;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(334, 627);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(111, 35);
+            this.btnReset.TabIndex = 10;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = false;
+            // 
             // TicTacToeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +185,7 @@
         private System.Windows.Forms.Button btn09;
         private System.Windows.Forms.Button btn07;
         private System.Windows.Forms.Button btn06;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 

@@ -185,10 +185,10 @@ namespace TicTacToe
 
             foreach (Button button in gridButtons)
             {
-                if (button.Tag == null) 
+                if (button.Tag == null) // 
                 {
-                    button.BackgroundImage = oImage;
-                    button.Tag = "O"; 
+                    button.BackgroundImage = oImage; 
+                    button.Tag = "O";
                     break;
                 }
             }
@@ -201,7 +201,9 @@ namespace TicTacToe
             }
 
             isPlayerXTurn = true;
+            lblStatus.Text = "Player X's Turn";
         }
+
 
 
         private bool TryPlaceMark(string mark)

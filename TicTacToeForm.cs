@@ -35,10 +35,13 @@ namespace TicTacToe
 
             foreach (Button button in gridButtons)
             {
-                button.Enabled = false;
+                button.Enabled = false; // Disable buttons initially
                 button.Click += Button_Click;
             }
+
+            lblStatus.Text = "Click Start to begin!";
         }
+
 
 
 

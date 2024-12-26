@@ -164,5 +164,27 @@ namespace TicTacToe
         {
 
         }
+
+        private void AITurn()
+        {
+            // Simple AI: Choose the first available spot
+            foreach (Button button in gridButtons)
+            {
+                if (button.Tag == null)
+                {
+                    button.BackgroundImage = oImage; // AI places "O"
+                    button.Tag = "O";
+                    break;
+                }
+            }
+            if (CheckWinner())
+            {
+                lblStatus.Text = "Player O Wins!";
+                DisableButtons();
+                return;
+            }
+
+            isPlayerXTurn = true; // Switch back to Player X's turn
+        }
     }
 }

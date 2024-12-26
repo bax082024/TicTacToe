@@ -62,7 +62,7 @@ namespace TicTacToe
                 isPlayerXTurn = !isPlayerXTurn;
 
                 // Trigger AI's turn if in single-player mode and it's Player O's turn
-                if (chkSinglePlayer.Checked && !isPlayerXTurn)
+                if (rbtnSinglePlayer.Checked && !isPlayerXTurn)
                 {
                     AITurn();
                 }
@@ -160,10 +160,7 @@ namespace TicTacToe
             btnStart.Enabled = false; 
         }
 
-        private void chkSinglePlayer_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void AITurn()
         {
@@ -305,5 +302,17 @@ namespace TicTacToe
             return false;
         }
 
+        private void rbtnSinglePlayer_CheckedChanged(object sender, EventArgs e)
+        {
+            // Check if single-player mode is enabled
+            if (rbtnSinglePlayer.Checked)
+            {
+                lblStatus.Text = "Single Player Mode Enabled!";
+            }
+            else
+            {
+                lblStatus.Text = "Two Player Mode Enabled!";
+            }
+        }
     }
 }

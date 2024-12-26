@@ -172,7 +172,7 @@ namespace TicTacToe
             btnStart.Enabled = false; 
         }
 
-        
+
 
         private void AITurn()
         {
@@ -182,10 +182,10 @@ namespace TicTacToe
 
             foreach (Button button in gridButtons)
             {
-                if (button.Tag == null)
+                if (button.Tag == null) 
                 {
                     button.BackgroundImage = oImage;
-                    button.Tag = "O";
+                    button.Tag = "O"; 
                     break;
                 }
             }
@@ -199,6 +199,7 @@ namespace TicTacToe
 
             isPlayerXTurn = true;
         }
+
 
         private bool TryPlaceMark(string mark)
         {

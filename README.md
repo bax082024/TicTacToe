@@ -44,3 +44,9 @@ including UI interaction, event handling, and game logic.
 	- Click Reset to restart the game.
 
 ---
+
+## Screenshot
+
+- ![Game](/Images/game.png)
+
+---

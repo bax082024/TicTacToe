@@ -73,6 +73,7 @@ namespace TicTacToe
 
 
 
+
         private bool CheckWinner()
         {
             for (int i = 0; i < 3; i++)
@@ -122,6 +123,8 @@ namespace TicTacToe
 
         private void btnReset_Click(object sender, EventArgs e)
         {
+            rbtnSinglePlayer.Enabled = true;
+
             foreach (Button button in gridButtons)
             {
                 button.Enabled = false; 
@@ -137,7 +140,7 @@ namespace TicTacToe
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
+
             if (gridButtons == null)
             {
                 gridButtons = new Button[,]
@@ -147,6 +150,8 @@ namespace TicTacToe
             { btn20, btn21, btn22 }
                 };
             }
+
+            rbtnSinglePlayer.Enabled = true;
 
             foreach (Button button in gridButtons)
             {

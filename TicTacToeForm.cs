@@ -46,18 +46,11 @@ namespace TicTacToe
         {
             Button clickedButton = sender as Button;
 
-            if (clickedButton.BackgroundImage == null)
+            if (clickedButton != null && clickedButton.BackgroundImage == null)
             {
-                if (isPlayerXTurn)
-                {
-                    clickedButton.BackgroundImage = xImage;
-                    clickedButton.Tag = "X"; 
-                }
-                else
-                {
-                    clickedButton.BackgroundImage = oImage;
-                    clickedButton.Tag = "O"; 
-                }
+                // Player makes their move
+                clickedButton.BackgroundImage = isPlayerXTurn ? xImage : oImage;
+                clickedButton.Tag = isPlayerXTurn ? "X" : "O";
 
                 if (CheckWinner())
                 {
@@ -66,10 +59,18 @@ namespace TicTacToe
                     return;
                 }
 
-                isPlayerXTurn = !isPlayerXTurn; 
+                isPlayerXTurn = !isPlayerXTurn;
+
+                // Trigger AI's turn if in single-player mode and it's Player O's turn
+                if (chkSinglePlayer.Checked && !isPlayerXTurn)
+                {
+                    AITurn();
+                }
+
                 lblStatus.Text = isPlayerXTurn ? "Player X's Turn" : "Player O's Turn";
             }
         }
+
 
 
         private bool CheckWinner()
@@ -159,6 +160,9 @@ namespace TicTacToe
             btnStart.Enabled = false; 
         }
 
+        private void chkSinglePlayer_CheckedChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

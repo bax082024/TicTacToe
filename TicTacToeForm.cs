@@ -205,6 +205,7 @@ namespace TicTacToe
         {
             for (int i = 0; i < 3; i++)
             {
+                // Check rows
                 if (gridButtons[i, 0].Tag?.ToString() == mark &&
                     gridButtons[i, 1].Tag?.ToString() == mark &&
                     gridButtons[i, 2].Tag == null)
@@ -230,6 +231,7 @@ namespace TicTacToe
                     return true;
                 }
 
+                // Check columns
                 if (gridButtons[0, i].Tag?.ToString() == mark &&
                     gridButtons[1, i].Tag?.ToString() == mark &&
                     gridButtons[2, i].Tag == null)
@@ -256,6 +258,7 @@ namespace TicTacToe
                 }
             }
 
+            // Check diagonals
             if (gridButtons[0, 0].Tag?.ToString() == mark &&
                 gridButtons[1, 1].Tag?.ToString() == mark &&
                 gridButtons[2, 2].Tag == null)
@@ -307,6 +310,7 @@ namespace TicTacToe
 
             return false;
         }
+
 
         private void chkSinglePlayer_CheckedChanged(object sender, EventArgs e)
         {

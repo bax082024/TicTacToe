@@ -62,7 +62,7 @@ namespace TicTacToe
                 isPlayerXTurn = !isPlayerXTurn;
 
                 // Trigger AI's turn if in single-player mode and it's Player O's turn
-                if (rbtnSinglePlayer.Checked && !isPlayerXTurn)
+                if (chkSinglePlayer.Checked && !isPlayerXTurn)
                 {
                     AITurn();
                 }
@@ -70,6 +70,7 @@ namespace TicTacToe
                 lblStatus.Text = isPlayerXTurn ? "Player X's Turn" : "Player O's Turn";
             }
         }
+
 
 
 
@@ -123,7 +124,7 @@ namespace TicTacToe
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            rbtnSinglePlayer.Enabled = true;
+            chkSinglePlayer.Enabled = false;
 
             foreach (Button button in gridButtons)
             {
@@ -145,13 +146,13 @@ namespace TicTacToe
             {
                 gridButtons = new Button[,]
                 {
-            { btn00, btn01, btn02 },
-            { btn10, btn11, btn12 },
-            { btn20, btn21, btn22 }
+                    { btn00, btn01, btn02 },
+                    { btn10, btn11, btn12 },
+                    { btn20, btn21, btn22 }
                 };
             }
 
-            rbtnSinglePlayer.Enabled = true;
+            chkSinglePlayer.Enabled = false;
 
             foreach (Button button in gridButtons)
             {
@@ -169,18 +170,15 @@ namespace TicTacToe
 
         private void AITurn()
         {
-            // Try to win
             if (TryPlaceMark("O")) return;
 
-            // Try to block opponent
             if (TryPlaceMark("X")) return;
 
-            // Default: Pick the first available spot
             foreach (Button button in gridButtons)
             {
                 if (button.Tag == null)
                 {
-                    button.BackgroundImage = oImage; // AI places "O"
+                    button.BackgroundImage = oImage;
                     button.Tag = "O";
                     break;
                 }
@@ -193,15 +191,13 @@ namespace TicTacToe
                 return;
             }
 
-            isPlayerXTurn = true; // Switch back to Player X's turn
+            isPlayerXTurn = true;
         }
 
-        // Helper method to try placing a mark to win or block
         private bool TryPlaceMark(string mark)
         {
             for (int i = 0; i < 3; i++)
             {
-                // Check rows
                 if (gridButtons[i, 0].Tag?.ToString() == mark &&
                     gridButtons[i, 1].Tag?.ToString() == mark &&
                     gridButtons[i, 2].Tag == null)
@@ -227,7 +223,6 @@ namespace TicTacToe
                     return true;
                 }
 
-                // Check columns
                 if (gridButtons[0, i].Tag?.ToString() == mark &&
                     gridButtons[1, i].Tag?.ToString() == mark &&
                     gridButtons[2, i].Tag == null)
@@ -254,7 +249,6 @@ namespace TicTacToe
                 }
             }
 
-            // Check diagonals
             if (gridButtons[0, 0].Tag?.ToString() == mark &&
                 gridButtons[1, 1].Tag?.ToString() == mark &&
                 gridButtons[2, 2].Tag == null)
@@ -307,16 +301,15 @@ namespace TicTacToe
             return false;
         }
 
-        private void rbtnSinglePlayer_CheckedChanged(object sender, EventArgs e)
+        private void chkSinglePlayer_CheckedChanged(object sender, EventArgs e)
         {
-            // Check if single-player mode is enabled
-            if (rbtnSinglePlayer.Checked)
+            if (chkSinglePlayer.Checked)
             {
-                lblStatus.Text = "Single Player Mode Enabled!";
+                lblStatus.Text = "Single Player";
             }
             else
             {
-                lblStatus.Text = "Two Player Mode Enabled!";
+                lblStatus.Text = "Two Player";
             }
         }
     }

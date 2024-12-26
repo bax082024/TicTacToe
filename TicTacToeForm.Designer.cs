@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rbtnSinglePlayer = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -47,6 +46,7 @@
             this.btn00 = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.chkSinglePlayer = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -55,7 +55,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.rbtnSinglePlayer);
+            this.panel1.Controls.Add(this.chkSinglePlayer);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.statusStrip1);
             this.panel1.Controls.Add(this.btnStart);
@@ -75,19 +75,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 672);
             this.panel1.TabIndex = 0;
-            // 
-            // rbtnSinglePlayer
-            // 
-            this.rbtnSinglePlayer.AutoSize = true;
-            this.rbtnSinglePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnSinglePlayer.Location = new System.Drawing.Point(493, 59);
-            this.rbtnSinglePlayer.Name = "rbtnSinglePlayer";
-            this.rbtnSinglePlayer.Size = new System.Drawing.Size(134, 17);
-            this.rbtnSinglePlayer.TabIndex = 14;
-            this.rbtnSinglePlayer.TabStop = true;
-            this.rbtnSinglePlayer.Text = "Single Player Mode";
-            this.rbtnSinglePlayer.UseVisualStyleBackColor = true;
-            this.rbtnSinglePlayer.CheckedChanged += new System.EventHandler(this.rbtnSinglePlayer_CheckedChanged);
             // 
             // label1
             // 
@@ -255,6 +242,17 @@
             this.lblStatus.TabIndex = 0;
             this.lblStatus.Text = "Player X Turn";
             // 
+            // chkSinglePlayer
+            // 
+            this.chkSinglePlayer.AutoSize = true;
+            this.chkSinglePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkSinglePlayer.Location = new System.Drawing.Point(531, 59);
+            this.chkSinglePlayer.Name = "chkSinglePlayer";
+            this.chkSinglePlayer.Size = new System.Drawing.Size(96, 17);
+            this.chkSinglePlayer.TabIndex = 14;
+            this.chkSinglePlayer.Text = "SinglePlayer";
+            this.chkSinglePlayer.UseVisualStyleBackColor = true;
+            // 
             // TicTacToeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,7 +291,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rbtnSinglePlayer;
+        private System.Windows.Forms.CheckBox chkSinglePlayer;
     }
 }
 

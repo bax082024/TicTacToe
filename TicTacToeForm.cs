@@ -311,6 +311,23 @@ namespace TicTacToe
             {
                 lblStatus.Text = "Two Player";
             }
+
+            ResetGame();
         }
+
+        private void ResetGame()
+        {
+            foreach (Button button in gridButtons)
+            {
+                button.Enabled = true; // Enable buttons for a new game
+                button.BackgroundImage = null; // Clear images
+                button.Tag = null; // Reset tags
+            }
+
+            isPlayerXTurn = true; // Always start with Player X
+            lblStatus.Text = "Player X's Turn"; // Update status
+            btnStart.Enabled = false; // Keep Start button disabled
+        }
+
     }
 }

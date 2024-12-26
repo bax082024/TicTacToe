@@ -179,30 +179,42 @@ namespace TicTacToe
 
         private void AITurn()
         {
-            if (TryPlaceMark("O")) return;
+            // Ensure the AI acts only if there are available moves
+            bool moveMade = false;
 
-            if (TryPlaceMark("X")) return;
+            // Try to win if possible
+            moveMade = TryPlaceMark("O");
+            if (moveMade) return;
 
+            // Try to block Player X from winning
+            moveMade = TryPlaceMark("X");
+            if (moveMade) return;
+
+            // Pick the first available spot if no strategic move is possible
             foreach (Button button in gridButtons)
             {
-                if (button.Tag == null) // 
+                if (button.Tag == null) // Only select empty spots
                 {
-                    button.BackgroundImage = oImage; 
-                    button.Tag = "O";
+                    button.BackgroundImage = oImage; // AI places "O"
+                    button.Tag = "O"; // Mark it as "O"
+                    moveMade = true;
                     break;
                 }
             }
 
-            if (CheckWinner())
+            // Check if the AI's move results in a win
+            if (moveMade && CheckWinner())
             {
                 lblStatus.Text = "Player O Wins!";
                 DisableButtons();
                 return;
             }
 
+            // Switch back to Player X's turn
             isPlayerXTurn = true;
             lblStatus.Text = "Player X's Turn";
         }
+
 
 
 

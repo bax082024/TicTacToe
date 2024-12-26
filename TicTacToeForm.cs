@@ -35,7 +35,7 @@ namespace TicTacToe
 
             foreach (Button button in gridButtons)
             {
-                button.Enabled = false; // Disable buttons initially
+                button.Enabled = false;
                 button.Click += Button_Click;
             }
 
@@ -309,6 +309,8 @@ namespace TicTacToe
 
         private void chkSinglePlayer_CheckedChanged(object sender, EventArgs e)
         {
+            if (gridButtons == null) return;
+
             if (chkSinglePlayer.Checked)
             {
                 lblStatus.Text = "Single Player";

@@ -320,10 +320,20 @@ namespace TicTacToe
 
         private void ResetGame()
         {
+            if (gridButtons == null)
+            {
+                gridButtons = new Button[,]
+                {
+                    { btn00, btn01, btn02 },
+                    { btn10, btn11, btn12 },
+                    { btn20, btn21, btn22 }
+                };
+            }
+
             foreach (Button button in gridButtons)
             {
-                button.Enabled = true; 
-                button.BackgroundImage = null; 
+                button.Enabled = true;
+                button.BackgroundImage = null;
                 button.Tag = null;
             }
 
@@ -331,6 +341,7 @@ namespace TicTacToe
             lblStatus.Text = "Player X's Turn";
             btnStart.Enabled = false;
         }
+
 
     }
 }

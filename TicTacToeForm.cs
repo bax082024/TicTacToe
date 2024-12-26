@@ -317,6 +317,7 @@ namespace TicTacToe
         }
 
 
+
         private void chkSinglePlayer_CheckedChanged(object sender, EventArgs e)
         {
             if (gridButtons == null) return;

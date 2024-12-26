@@ -50,3 +50,10 @@ including UI interaction, event handling, and game logic.
 - ![Game](/Images/game.png)
 
 ---
+
+## Contact
+
+- For questions or feedback, please contact:
+- **bax082024@gmail.com**
+
+---

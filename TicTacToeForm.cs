@@ -136,11 +136,14 @@ namespace TicTacToe
             isPlayerXTurn = true;
             lblStatus.Text = "Click Start to begin!";
             btnStart.Enabled = true;
+
+            ResetGame();
         }
 
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            ResetGame();
 
             if (gridButtons == null)
             {
@@ -319,14 +322,14 @@ namespace TicTacToe
         {
             foreach (Button button in gridButtons)
             {
-                button.Enabled = true; // Enable buttons for a new game
-                button.BackgroundImage = null; // Clear images
-                button.Tag = null; // Reset tags
+                button.Enabled = true; 
+                button.BackgroundImage = null; 
+                button.Tag = null;
             }
 
-            isPlayerXTurn = true; // Always start with Player X
-            lblStatus.Text = "Player X's Turn"; // Update status
-            btnStart.Enabled = false; // Keep Start button disabled
+            isPlayerXTurn = true;
+            lblStatus.Text = "Player X's Turn";
+            btnStart.Enabled = false;
         }
 
     }

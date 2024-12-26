@@ -16,3 +16,11 @@ including UI interaction, event handling, and game logic.
 
 ---
 
+## Tech used
+
+- Language : C#
+- Framework: .NET Framework
+- UI: Windows Forms
+
+---
+

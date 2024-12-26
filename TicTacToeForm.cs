@@ -18,8 +18,8 @@ namespace TicTacToe
             InitializeComponent();
         }
 
-        private bool isPlayerXTurn = true; // Tracks the current player
-        private Button[,] gridButtons;    // 2D array for the button grid
+        private bool isPlayerXTurn = true;
+        private Button[,] gridButtons;
         private Image xImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "x.png"));
         private Image oImage = Image.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images", "o.png"));
 
@@ -35,7 +35,7 @@ namespace TicTacToe
 
             foreach (Button button in gridButtons)
             {
-                button.Enabled = false; // Disable buttons initially
+                button.Enabled = false;
                 button.Click += Button_Click;
             }
         }
@@ -46,17 +46,17 @@ namespace TicTacToe
         {
             Button clickedButton = sender as Button;
 
-            if (clickedButton.BackgroundImage == null) // Check if the button is empty
+            if (clickedButton.BackgroundImage == null)
             {
                 if (isPlayerXTurn)
                 {
                     clickedButton.BackgroundImage = xImage;
-                    clickedButton.Tag = "X"; // Store the player for winner check
+                    clickedButton.Tag = "X"; 
                 }
                 else
                 {
                     clickedButton.BackgroundImage = oImage;
-                    clickedButton.Tag = "O"; // Store the player for winner check
+                    clickedButton.Tag = "O"; 
                 }
 
                 if (CheckWinner())
@@ -66,7 +66,7 @@ namespace TicTacToe
                     return;
                 }
 
-                isPlayerXTurn = !isPlayerXTurn; // Switch turns
+                isPlayerXTurn = !isPlayerXTurn; 
                 lblStatus.Text = isPlayerXTurn ? "Player X's Turn" : "Player O's Turn";
             }
         }
@@ -74,10 +74,8 @@ namespace TicTacToe
 
         private bool CheckWinner()
         {
-            // Check rows and columns
             for (int i = 0; i < 3; i++)
             {
-                // Check rows
                 if (gridButtons[i, 0].Tag != null &&
                     gridButtons[i, 0].Tag == gridButtons[i, 1].Tag &&
                     gridButtons[i, 1].Tag == gridButtons[i, 2].Tag)
@@ -85,7 +83,7 @@ namespace TicTacToe
                     return true;
                 }
 
-                // Check columns
+   
                 if (gridButtons[0, i].Tag != null &&
                     gridButtons[0, i].Tag == gridButtons[1, i].Tag &&
                     gridButtons[1, i].Tag == gridButtons[2, i].Tag)
@@ -94,7 +92,6 @@ namespace TicTacToe
                 }
             }
 
-            // Check diagonals
             if (gridButtons[0, 0].Tag != null &&
                 gridButtons[0, 0].Tag == gridButtons[1, 1].Tag &&
                 gridButtons[1, 1].Tag == gridButtons[2, 2].Tag)
@@ -126,20 +123,20 @@ namespace TicTacToe
         {
             foreach (Button button in gridButtons)
             {
-                button.Enabled = false; // Disable grid buttons
-                button.BackgroundImage = null; // Clear the image
-                button.Tag = null; // Reset the Tag property
+                button.Enabled = false; 
+                button.BackgroundImage = null;
+                button.Tag = null;
             }
 
             isPlayerXTurn = true;
-            lblStatus.Text = "Click Start to begin!"; // Update status
-            btnStart.Enabled = true; // Enable the Start button
+            lblStatus.Text = "Click Start to begin!";
+            btnStart.Enabled = true;
         }
 
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            // Ensure gridButtons is initialized
+            
             if (gridButtons == null)
             {
                 gridButtons = new Button[,]
@@ -152,14 +149,14 @@ namespace TicTacToe
 
             foreach (Button button in gridButtons)
             {
-                button.Enabled = true; // Enable the buttons
-                button.BackgroundImage = null; // Reset any images
-                button.Tag = null; // Reset the Tag property
+                button.Enabled = true; 
+                button.BackgroundImage = null; 
+                button.Tag = null; 
             }
 
-            isPlayerXTurn = true; // Reset to Player X's turn
-            lblStatus.Text = "Player X's Turn"; // Update status
-            btnStart.Enabled = false; // Disable the Start button to prevent restarts mid-game
+            isPlayerXTurn = true; 
+            lblStatus.Text = "Player X's Turn"; 
+            btnStart.Enabled = false; 
         }
 
 

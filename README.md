@@ -30,3 +30,17 @@ including UI interaction, event handling, and game logic.
 2. Open Open the solution file (`TicTacToe.sln`) in Visual Studio.
 3. Rebuild solution.
 4. Run the game.
+
+---
+
+## How to play :video_game:
+
+1. **Start the Game:**
+	- Click Start button.
+2. **Take Turns:**
+	- Players take turns clicking buttons on the grid to place their symbol (X or O).
+3. **Win or Reset:**
+	- The game detects wins or draws and displays the result.
+	- Click Reset to restart the game.
+
+---

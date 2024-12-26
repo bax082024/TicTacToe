@@ -82,6 +82,7 @@ namespace TicTacToe
         {
             for (int i = 0; i < 3; i++)
             {
+                // Check rows
                 if (gridButtons[i, 0].Tag != null &&
                     gridButtons[i, 0].Tag == gridButtons[i, 1].Tag &&
                     gridButtons[i, 1].Tag == gridButtons[i, 2].Tag)
@@ -89,7 +90,7 @@ namespace TicTacToe
                     return true;
                 }
 
-   
+                // Check columns
                 if (gridButtons[0, i].Tag != null &&
                     gridButtons[0, i].Tag == gridButtons[1, i].Tag &&
                     gridButtons[1, i].Tag == gridButtons[2, i].Tag)
@@ -98,6 +99,7 @@ namespace TicTacToe
                 }
             }
 
+            // Check diagonals
             if (gridButtons[0, 0].Tag != null &&
                 gridButtons[0, 0].Tag == gridButtons[1, 1].Tag &&
                 gridButtons[1, 1].Tag == gridButtons[2, 2].Tag)
@@ -114,6 +116,7 @@ namespace TicTacToe
 
             return false;
         }
+
 
 
 

@@ -167,7 +167,13 @@ namespace TicTacToe
 
         private void AITurn()
         {
-            // Simple AI: Choose the first available spot
+            // Try to win
+            if (TryPlaceMark("O")) return;
+
+            // Try to block opponent
+            if (TryPlaceMark("X")) return;
+
+            // Default: Pick the first available spot
             foreach (Button button in gridButtons)
             {
                 if (button.Tag == null)
@@ -177,6 +183,7 @@ namespace TicTacToe
                     break;
                 }
             }
+
             if (CheckWinner())
             {
                 lblStatus.Text = "Player O Wins!";
@@ -186,5 +193,117 @@ namespace TicTacToe
 
             isPlayerXTurn = true; // Switch back to Player X's turn
         }
+
+        // Helper method to try placing a mark to win or block
+        private bool TryPlaceMark(string mark)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                // Check rows
+                if (gridButtons[i, 0].Tag?.ToString() == mark &&
+                    gridButtons[i, 1].Tag?.ToString() == mark &&
+                    gridButtons[i, 2].Tag == null)
+                {
+                    gridButtons[i, 2].BackgroundImage = oImage;
+                    gridButtons[i, 2].Tag = "O";
+                    return true;
+                }
+                if (gridButtons[i, 0].Tag?.ToString() == mark &&
+                    gridButtons[i, 2].Tag?.ToString() == mark &&
+                    gridButtons[i, 1].Tag == null)
+                {
+                    gridButtons[i, 1].BackgroundImage = oImage;
+                    gridButtons[i, 1].Tag = "O";
+                    return true;
+                }
+                if (gridButtons[i, 1].Tag?.ToString() == mark &&
+                    gridButtons[i, 2].Tag?.ToString() == mark &&
+                    gridButtons[i, 0].Tag == null)
+                {
+                    gridButtons[i, 0].BackgroundImage = oImage;
+                    gridButtons[i, 0].Tag = "O";
+                    return true;
+                }
+
+                // Check columns
+                if (gridButtons[0, i].Tag?.ToString() == mark &&
+                    gridButtons[1, i].Tag?.ToString() == mark &&
+                    gridButtons[2, i].Tag == null)
+                {
+                    gridButtons[2, i].BackgroundImage = oImage;
+                    gridButtons[2, i].Tag = "O";
+                    return true;
+                }
+                if (gridButtons[0, i].Tag?.ToString() == mark &&
+                    gridButtons[2, i].Tag?.ToString() == mark &&
+                    gridButtons[1, i].Tag == null)
+                {
+                    gridButtons[1, i].BackgroundImage = oImage;
+                    gridButtons[1, i].Tag = "O";
+                    return true;
+                }
+                if (gridButtons[1, i].Tag?.ToString() == mark &&
+                    gridButtons[2, i].Tag?.ToString() == mark &&
+                    gridButtons[0, i].Tag == null)
+                {
+                    gridButtons[0, i].BackgroundImage = oImage;
+                    gridButtons[0, i].Tag = "O";
+                    return true;
+                }
+            }
+
+            // Check diagonals
+            if (gridButtons[0, 0].Tag?.ToString() == mark &&
+                gridButtons[1, 1].Tag?.ToString() == mark &&
+                gridButtons[2, 2].Tag == null)
+            {
+                gridButtons[2, 2].BackgroundImage = oImage;
+                gridButtons[2, 2].Tag = "O";
+                return true;
+            }
+            if (gridButtons[0, 0].Tag?.ToString() == mark &&
+                gridButtons[2, 2].Tag?.ToString() == mark &&
+                gridButtons[1, 1].Tag == null)
+            {
+                gridButtons[1, 1].BackgroundImage = oImage;
+                gridButtons[1, 1].Tag = "O";
+                return true;
+            }
+            if (gridButtons[1, 1].Tag?.ToString() == mark &&
+                gridButtons[2, 2].Tag?.ToString() == mark &&
+                gridButtons[0, 0].Tag == null)
+            {
+                gridButtons[0, 0].BackgroundImage = oImage;
+                gridButtons[0, 0].Tag = "O";
+                return true;
+            }
+            if (gridButtons[0, 2].Tag?.ToString() == mark &&
+                gridButtons[1, 1].Tag?.ToString() == mark &&
+                gridButtons[2, 0].Tag == null)
+            {
+                gridButtons[2, 0].BackgroundImage = oImage;
+                gridButtons[2, 0].Tag = "O";
+                return true;
+            }
+            if (gridButtons[0, 2].Tag?.ToString() == mark &&
+                gridButtons[2, 0].Tag?.ToString() == mark &&
+                gridButtons[1, 1].Tag == null)
+            {
+                gridButtons[1, 1].BackgroundImage = oImage;
+                gridButtons[1, 1].Tag = "O";
+                return true;
+            }
+            if (gridButtons[1, 1].Tag?.ToString() == mark &&
+                gridButtons[2, 0].Tag?.ToString() == mark &&
+                gridButtons[0, 2].Tag == null)
+            {
+                gridButtons[0, 2].BackgroundImage = oImage;
+                gridButtons[0, 2].Tag = "O";
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }

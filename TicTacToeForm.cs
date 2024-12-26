@@ -49,30 +49,43 @@ namespace TicTacToe
         {
             Button clickedButton = sender as Button;
 
-            if (clickedButton != null && clickedButton.BackgroundImage == null)
+            if (clickedButton == null || clickedButton.Tag != null)
             {
-                // Player makes their move
-                clickedButton.BackgroundImage = isPlayerXTurn ? xImage : oImage;
-                clickedButton.Tag = isPlayerXTurn ? "X" : "O";
-
-                if (CheckWinner())
-                {
-                    lblStatus.Text = $"{(isPlayerXTurn ? "Player X" : "Player O")} Wins!";
-                    DisableButtons();
-                    return;
-                }
-
-                isPlayerXTurn = !isPlayerXTurn;
-
-                // Trigger AI's turn if in single-player mode and it's Player O's turn
-                if (chkSinglePlayer.Checked && !isPlayerXTurn)
-                {
-                    AITurn();
-                }
-
-                lblStatus.Text = isPlayerXTurn ? "Player X's Turn" : "Player O's Turn";
+                return; 
             }
+
+            clickedButton.BackgroundImage = isPlayerXTurn ? xImage : oImage;
+            clickedButton.Tag = isPlayerXTurn ? "X" : "O";
+
+ 
+            if (CheckWinner())
+            {
+                lblStatus.Text = $"{(isPlayerXTurn ? "Player X" : "Player O")} Wins!";
+                DisableButtons();
+                return;
+            }
+
+   
+            if (IsBoardFull())
+            {
+                lblStatus.Text = "It's a Draw!";
+                DisableButtons();
+                return;
+            }
+
+            isPlayerXTurn = !isPlayerXTurn;
+
+            if (chkSinglePlayer.Checked && !isPlayerXTurn)
+            {
+                AITurn();
+            }
+
+            lblStatus.Text = isPlayerXTurn ? "Player X's Turn" : "Player O's Turn";
         }
+
+
+
+
 
 
 
@@ -83,7 +96,8 @@ namespace TicTacToe
             for (int i = 0; i < 3; i++)
             {
                 // Check rows
-                if (gridButtons[i, 0].Tag != null &&
+                if (gridButtons[i, 0] != null && gridButtons[i, 1] != null && gridButtons[i, 2] != null &&
+                    gridButtons[i, 0].Tag != null &&
                     gridButtons[i, 0].Tag == gridButtons[i, 1].Tag &&
                     gridButtons[i, 1].Tag == gridButtons[i, 2].Tag)
                 {
@@ -91,7 +105,8 @@ namespace TicTacToe
                 }
 
                 // Check columns
-                if (gridButtons[0, i].Tag != null &&
+                if (gridButtons[0, i] != null && gridButtons[1, i] != null && gridButtons[2, i] != null &&
+                    gridButtons[0, i].Tag != null &&
                     gridButtons[0, i].Tag == gridButtons[1, i].Tag &&
                     gridButtons[1, i].Tag == gridButtons[2, i].Tag)
                 {
@@ -100,14 +115,16 @@ namespace TicTacToe
             }
 
             // Check diagonals
-            if (gridButtons[0, 0].Tag != null &&
+            if (gridButtons[0, 0] != null && gridButtons[1, 1] != null && gridButtons[2, 2] != null &&
+                gridButtons[0, 0].Tag != null &&
                 gridButtons[0, 0].Tag == gridButtons[1, 1].Tag &&
                 gridButtons[1, 1].Tag == gridButtons[2, 2].Tag)
             {
                 return true;
             }
 
-            if (gridButtons[0, 2].Tag != null &&
+            if (gridButtons[0, 2] != null && gridButtons[1, 1] != null && gridButtons[2, 0] != null &&
+                gridButtons[0, 2].Tag != null &&
                 gridButtons[0, 2].Tag == gridButtons[1, 1].Tag &&
                 gridButtons[1, 1].Tag == gridButtons[2, 0].Tag)
             {
@@ -116,6 +133,7 @@ namespace TicTacToe
 
             return false;
         }
+
 
 
 
@@ -179,41 +197,53 @@ namespace TicTacToe
 
         private void AITurn()
         {
-            // Ensure the AI acts only if there are available moves
+   
+            if (CheckWinner() || IsBoardFull()) return;
+
             bool moveMade = false;
 
-            // Try to win if possible
+
             moveMade = TryPlaceMark("O");
             if (moveMade) return;
 
-            // Try to block Player X from winning
+     
             moveMade = TryPlaceMark("X");
             if (moveMade) return;
 
-            // Pick the first available spot if no strategic move is possible
+   
             foreach (Button button in gridButtons)
             {
-                if (button.Tag == null) // Only select empty spots
+                if (button.Tag == null) 
                 {
-                    button.BackgroundImage = oImage; // AI places "O"
-                    button.Tag = "O"; // Mark it as "O"
-                    moveMade = true;
+                    button.BackgroundImage = oImage;
+                    button.Tag = "O";
                     break;
                 }
             }
 
-            // Check if the AI's move results in a win
-            if (moveMade && CheckWinner())
+ 
+            if (CheckWinner())
             {
                 lblStatus.Text = "Player O Wins!";
                 DisableButtons();
                 return;
             }
 
-            // Switch back to Player X's turn
+   
+            if (IsBoardFull())
+            {
+                lblStatus.Text = "It's a Draw!";
+                DisableButtons();
+                return;
+            }
+
+        
             isPlayerXTurn = true;
             lblStatus.Text = "Player X's Turn";
         }
+
+
+
 
 
 
@@ -284,22 +314,6 @@ namespace TicTacToe
                 gridButtons[2, 2].Tag = "O";
                 return true;
             }
-            if (gridButtons[0, 0].Tag?.ToString() == mark &&
-                gridButtons[2, 2].Tag?.ToString() == mark &&
-                gridButtons[1, 1].Tag == null)
-            {
-                gridButtons[1, 1].BackgroundImage = oImage;
-                gridButtons[1, 1].Tag = "O";
-                return true;
-            }
-            if (gridButtons[1, 1].Tag?.ToString() == mark &&
-                gridButtons[2, 2].Tag?.ToString() == mark &&
-                gridButtons[0, 0].Tag == null)
-            {
-                gridButtons[0, 0].BackgroundImage = oImage;
-                gridButtons[0, 0].Tag = "O";
-                return true;
-            }
             if (gridButtons[0, 2].Tag?.ToString() == mark &&
                 gridButtons[1, 1].Tag?.ToString() == mark &&
                 gridButtons[2, 0].Tag == null)
@@ -308,25 +322,11 @@ namespace TicTacToe
                 gridButtons[2, 0].Tag = "O";
                 return true;
             }
-            if (gridButtons[0, 2].Tag?.ToString() == mark &&
-                gridButtons[2, 0].Tag?.ToString() == mark &&
-                gridButtons[1, 1].Tag == null)
-            {
-                gridButtons[1, 1].BackgroundImage = oImage;
-                gridButtons[1, 1].Tag = "O";
-                return true;
-            }
-            if (gridButtons[1, 1].Tag?.ToString() == mark &&
-                gridButtons[2, 0].Tag?.ToString() == mark &&
-                gridButtons[0, 2].Tag == null)
-            {
-                gridButtons[0, 2].BackgroundImage = oImage;
-                gridButtons[0, 2].Tag = "O";
-                return true;
-            }
 
             return false;
         }
+
+
 
 
 
@@ -361,14 +361,27 @@ namespace TicTacToe
             foreach (Button button in gridButtons)
             {
                 button.Enabled = true;
-                button.BackgroundImage = null;
-                button.Tag = null;
+                button.BackgroundImage = null; 
+                button.Tag = null; 
             }
 
-            isPlayerXTurn = true;
-            lblStatus.Text = "Player X's Turn";
-            btnStart.Enabled = false;
+            isPlayerXTurn = true; 
+            lblStatus.Text = "Player X's Turn"; 
+            btnStart.Enabled = false; 
+            chkSinglePlayer.Enabled = true; 
         }
+
+
+        private bool IsBoardFull()
+        {
+            foreach (Button button in gridButtons)
+            {
+                if (button.Tag == null) return false;
+            }
+            return true; 
+        }
+
+
 
 
     }
